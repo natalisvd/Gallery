@@ -1,0 +1,19 @@
+%table.table
+  - Event.all.each do |event|
+    %tr
+      %td
+        = event.eventable_type
+      %td
+        = event.created_at
+        - case event.eventable_type
+          - when 'Navigation'
+            %td
+              = event.eventable.path
+          - when 'Like'
+            %td
+              = Picture.find(event.eventable_body).url
+          - when 'Comment'
+            %td
+              = User.find(event.user_id).email
+            %td
+              = event.eventable.body

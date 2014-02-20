@@ -1,0 +1,3 @@
+%p
+  - @picture.each do |picture|
+    = link_to_if(false, image_tag(picture.url.url(:thumb)), category_picture_path(picture.category_id, picture.id), :id => "image-#{picture.id}")

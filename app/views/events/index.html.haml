@@ -1,0 +1,13 @@
+- User.all.each do |u|
+  %p{:style => "margin: 5px 0 5px 10px;"}
+  = u.email
+  = link_to "Navigation", event_path(:id => u.id, :event_type => "Navigation" )
+  |
+  \#{ link_to "User sign in", event_path(:id => u.id, :event_type => "User_in" ) }
+  |
+  \#{ link_to "User sign out", event_path( :id => u.id, :event_type => "User_out" ) }
+  |
+  \#{ link_to "Likes", event_path( :id => u.id, :event_type => "Like" ) }
+  |
+  \#{ link_to "Comments", event_path( :id => u.id, :event_type => "Comment" ) }
+.clear
