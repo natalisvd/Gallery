@@ -10,6 +10,8 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.picture = @picture
     @comment.save
+    Resque.enqueue(CommentEvent, @comment.id)
+    Pusher['test-channel'].trigger('test-event',comment: @comment, picture: @comment.picture.url, user: current_user.name)
     redirect_to :back
   end
 

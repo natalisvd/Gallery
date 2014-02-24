@@ -7,8 +7,5 @@ class Comment < ActiveRecord::Base
 
   validates :body, :length => { :maximum => 100}
 
-  after_create :create_com
-  def create_com
-    self.events.create(:eventable_body => self.body, :user_id => self.user_id)
-  end
+
 end

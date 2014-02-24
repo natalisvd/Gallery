@@ -1,3 +1,6 @@
 %p
   - @picture.each do |picture|
-    = link_to image_tag(picture.url.url(:thumb)), category_path(picture.category_id, picture.id), :id => "image-#{picture.id}"
+    = link_to image_tag(picture.url.url(:thumb)), show_picture_path(@category.name,picture.id)
+    -#= category_path
+    -#= link_to "#{@category.name}/#{picture.id}" do
+    -#  image_tag(picture.url.url(:thumb))
