@@ -9,6 +9,7 @@ gem 'puma'
 gem 'devise'
 gem 'pg'
 gem 'protected_attributes'
+gem 'simple_captcha', :git => 'git://github.com/galetahub/simple-captcha.git'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 gem 'rake'
@@ -27,6 +28,8 @@ gem 'carrierwave'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 gem 'will_paginate'
+gem 'omniauth'
+gem 'omniauth-facebook'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap'

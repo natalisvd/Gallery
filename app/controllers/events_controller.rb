@@ -2,20 +2,9 @@ class EventsController < ApplicationController
   def index
     @user = User.all
   end
+def  show
+  @events = Event.where(:user_id => params[:user_id],:eventable_type=>params[:eventable_type]).paginate(:page => params[:page], :per_page => 15)
+end
 
-  def sign_in
-    @events = Event.where(:eventable_type => 'Sign_in',:user_id => params[:user_id])
-  end
-  def sign_out
-    @events = Event.where(:eventable_type => 'Sign_out',:user_id => params[:user_id])
-  end
-  def navigation
-    @events = Event.where(:eventable_type => 'Navigation',:user_id => params[:user_id]).preload(:eventable)
-  end
-  def like
-    @events = Event.where(:eventable_type => 'Like',:user_id => params[:user_id]).includes(:eventable => :picture)
-  end
-  def comment
-    @events = Event.where(:eventable_type => 'Comment',:user_id => params[:user_id]).includes(:eventable => :picture)
-  end
+
 end

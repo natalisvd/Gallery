@@ -34,18 +34,16 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand{href: root_path} GalleryApp
           .container-fluid.nav-collapse
-            %ul.nav
-              %h5
-                = link_to "categories", categories_path
-                = link_to "events", events_path
-                - if user_signed_in?
-                  Signed in as #{current_user.email}.
-                  \#{ link_to "Sign out", destroy_user_session_path, :method => :delete }
-                - else
-                  = link_to "Sign up", new_user_registration_path
-                  or #{ link_to "Sign in", new_user_session_path }
+            - cache 'layouts-navigation' do
+              = render 'layouts/navigation'
+            %h5
+              = link_to "categories", categories_path
+              = link_to "pictures", pictures_path
+              = link_to "comments",  comments_path
+              = link_to "events", events_path
+
+
           / /.nav-collapse
     .container-fluid
       .row-fluid

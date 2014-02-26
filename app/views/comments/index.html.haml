@@ -1,0 +1,9 @@
+- @comments.each do |comment|
+  %br
+  %h5
+    = "Commenter:"
+    = User.find_by_id(comment.user_id).email
+    = comment.created_at
+  %h9
+    = comment.body
+= will_paginate @comments

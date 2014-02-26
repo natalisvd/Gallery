@@ -17,12 +17,12 @@
       %td
         = user.email
       %td
-        = link_to t('Navigation'),navigation_events_path(user.id)
+        = link_to t('Navigation'), event_path(user.id, :eventable_type => "Navigation" )
       %td
-        = link_to t('Sign_in'),sign_in_events_path(user.id)
+        = link_to t('Sign_in'), event_path(user.id, :eventable_type=> "Sign_in")
       %td
-        = link_to t('Sign_out'),sign_out_events_path(user.id)
+        = link_to t('Sign_out'), event_path(user.id, :eventable_type=> "Sign_out")
       %td
-        = link_to t('Like'),like_events_path(user.id)
+        = link_to t('Like'), event_path(user.id, :eventable_type=> "Like")
       %td
-        = link_to t('Comment'),comment_events_path(user.id)
+        = link_to t('Comment'), event_path(user.id, :eventable_type=> "Comment")

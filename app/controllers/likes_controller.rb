@@ -10,9 +10,9 @@ end
     Picture.increment_counter(:like_count, @like.picture)
 
     @like.save
-    Resque.enqueue(LikeEvent, @like.id)
+    Event.create(:user_id => current_user.id, :eventable_type => "Like", :eventable_body => "#{Picture.find(@like.picture_id).url}")
 
-   redirect_to :back
+    redirect_to :back
   end
   def destroy
     like = current_user.likes.where(:picture_id  => params[:picture_id ])

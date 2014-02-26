@@ -3,6 +3,13 @@ class CommentsController < ApplicationController
   def new
     i = o
   end
+  def index
+   @comments = Comment.order(created_at: :desc).paginate(:page => params[:page], :per_page => 10)
+  end
+  def show
+    @comment = Comment.find(params[:id])
+  end
+
 
   def create
     @picture = Picture.find(params[:picture_id])
@@ -10,8 +17,7 @@ class CommentsController < ApplicationController
     @comment.user = current_user
     @comment.picture = @picture
     @comment.save
-    Resque.enqueue(CommentEvent, @comment.id)
-    Pusher['test-channel'].trigger('test-event',comment: @comment, picture: @comment.picture.url, user: current_user.name)
+    Event.create(:user_id => current_user.id, :eventable_type => "Comment", :eventable_body => "#{request.original_url}")
     redirect_to :back
   end
 
