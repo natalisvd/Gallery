@@ -22,6 +22,10 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap'
+group :production do
+  gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
+  gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
+end
 group :doc do
     gem 'sdoc', require: false
 end
