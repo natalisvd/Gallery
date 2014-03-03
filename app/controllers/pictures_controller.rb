@@ -1,14 +1,15 @@
 class PicturesController < ApplicationController
   before_filter :authenticate_user!
+
   def index
-    false
-    @picture = Picture.order(like_count: :desc)
-
+    @pictures = Picture.order(like_count: :desc)
   end
-  def show
-    @category = Category.find_by_name(params[:category_id])
-    @picture = Picture.find(params[:id])
 
+  def show
+    @picture = Picture.find(params[:id])
+    @comments = @picture.comments.preload(:user)
+    @comments_count = @picture.comments.count.to_i
+    @like = @picture.likes.find_by_user_id(current_user.id)
   end
 
 end

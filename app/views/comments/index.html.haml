@@ -2,7 +2,7 @@
   %br
   %h5
     = "Commenter:"
-    = User.find_by_id(comment.user_id).email
+    = comment.user.email
     = comment.created_at
   %h9
     = comment.body

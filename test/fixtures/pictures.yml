@@ -2,10 +2,7 @@
 
 one:
   category_id: 1
-  pict_file_name: MyString
-  pict_file_size: 1
 
 two:
   category_id: 1
-  pict_file_name: MyString
-  pict_file_size: 1
+
