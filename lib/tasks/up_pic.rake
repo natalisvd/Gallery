@@ -1,3 +1,4 @@
+
 task :up_pic => :environment do
   path = Dir.new(STDIN.gets.chomp)
 

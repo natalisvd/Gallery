@@ -22,7 +22,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'jbuilder', '~> 1.2'
 gem 'bootstrap'
-gem 'rails_12factor'
+gem 'carrierwave-dropbox'
 
 group :production do
   gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
