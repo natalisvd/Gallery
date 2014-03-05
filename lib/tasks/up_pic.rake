@@ -12,7 +12,7 @@ def add_categories_or_pictures(value, parent=nil)
       file_or_dir = File.join(value.path, element)
 
       if File.directory?(file_or_dir)
-        category = Category.find_or_create_by_name(element)
+        category = Category.find_or_create_by(:name => element)
         file_or_dir = Dir.new(file_or_dir)
         add_categories_or_pictures(file_or_dir, category)
 
