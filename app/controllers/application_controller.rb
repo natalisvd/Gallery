@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
   def after_sign_up_path_for(resource)
     if resource_or_scope.is_a?(User) or resource_or_scope.eql?(:user)
       Event.create(:eventable_type => 'Sign_in', :user_id => current_user.id)

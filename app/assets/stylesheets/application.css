@@ -12,3 +12,8 @@
  *= require_tree .
  */
 /* --> Renders static asset every time */
+/*
+ *= require bootstrap_and_overrides
+ */
+
+/* Your stylesheets goes here... */
