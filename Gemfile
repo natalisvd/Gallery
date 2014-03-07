@@ -31,8 +31,12 @@ group :doc do
     gem 'sdoc', require: false
 end
 group :test do
+  gem 'selenium-webdriver'
+  gem 'capybara'
   gem 'factory_girl'
   gem 'rspec-rails'
+  gem 'database_cleaner'
+
 end
 
 
